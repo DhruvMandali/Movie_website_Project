@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Admin Panel</title>
+    <link rel="stylesheet" href="./style/admin.css">
+    <script src="js/admin.js" defer></script>
+
+</head>
+
+<body>
+    <aside class="sidebar">
+        <h2>🎬 Movie Admin</h2>
+        <p class="sidebar-label">ADMIN PANEL</p>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#users">Registered Users</a>
+        <a href="#reviews">Review Moderation</a>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage your movie website</p>
+            </div>
+            <span class="admin-badge">ADMIN</span>
+        </header>
+
+        <p id="statusMessage" role="status">Loading dashboard...</p>
+
+        <section id="dashboard" class="stats-grid">
+            <article class="stat-card">
+                <p>Total Users</p>
+                <h2 id="totalUsers">—</h2>
+            </article>
+            <article class="stat-card">
+                <p>Total Reviews</p>
+                <h2 id="totalReviews">—</h2>
+            </article>
+            <article class="stat-card">
+                <p>Total Favorites</p>
+                <h2 id="totalFavorites">—</h2>
+            </article>
+        </section>
+
+        <section id="users" class="panel">
+            <div class="panel-header">
+                <button type="button" id="refreshUsersButton" class="refresh-button">
+                    Refresh Users
+                </button>
+                <div>
+                    <h2>Registered Users</h2>
+                    <p>View accounts registered on your website.</p>
+                </div>
+                <input type="search" id="userSearch" placeholder="Search name or email..." aria-label="Search users">
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Registered Date &amp; Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="6">Loading users...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="usersCount"></p>
+        </section>
+
+
+
+        <section class="activity-section">
+            <div class="panel-header">
+                
+                <div>
+                    <h2>User Activity Logs</h2>
+                    <p>Latest activities performed by users.</p>
+                </div>
+
+                <button type="button" id="refreshActivitiesButton" class="refresh-button">
+                    Refresh Activities
+                </button>
+                 <!-- <input
+                    type="search"
+                    id="userSearch"
+                    placeholder="Search name or email..."
+                    aria-label="Search users"
+                > -->
+
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Log ID</th>
+                            <th>User ID</th>
+                            <th>Email</th>
+                            <th>Activity</th>
+                            <th>Details</th>
+                            <th>Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activitiesTableBody">
+                        <tr>
+                            <td colspan="6">Loading activities...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Review Moderation -->
+        <section id="reviews" class="panel reviews-section">
+            <div class="panel-header">
+
+                <div>
+                    <h2>Review Moderation</h2>
+                    <p>View and manage movie reviews submitted by users.</p>
+                </div>
+                <button type="button" id="refreshReviewsButton" class="refresh-button">
+                    Refresh Reviews
+                </button>
+
+            </div>
+
+            <div class="table-wrapper">
+                <table class="reviews-table">
+                    <thead>
+                        <tr>
+                            <th>Review ID</th>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Movie ID</th>
+                            <th>Review</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewsTableBody">
+                        <tr>
+                            <td colspan="7">Loading reviews...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="reviewsStatus" role="status"></p>
+        </section>
+
+    </main>
+</body>
+
+</html>

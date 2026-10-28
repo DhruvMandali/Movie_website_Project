@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Movie App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+  <nav>
+    <h2>Movie</h2>
+    <div class="nav-links">
+      <a href="index.html">Movies</a>
+      <div id="authArea" style="display: inline;"></div>
+      <a href="favorites.html">My Favorites ❤️</a>
+      <button id="toggleMode">🌙</button>
+    </div>
+  </nav>
+  <main class="auth-container">
+    <h1>Create Account</h1>
+
+    <form id="registerForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        minlength="8"
+        required
+      >
+
+      <button type="submit">Register</button>
+      <p id="message" role="status"></p>
+    </form>
+
+    <p>Already have an account?
+      <a href="login.html">Login here</a>
+    </p>
+
+    <a href="index.html">Back to Home</a>
+  </main>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

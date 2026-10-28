@@ -1,0 +1,411 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* DARK MODE */
+.dark {
+  background: #0d1b2a;
+  color: white;
+}
+
+/* NAVBAR */
+/* nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: black;
+} */
+
+
+nav {
+  top: 0;
+    display: flex;
+    position: sticky;
+    z-index: 100;
+    justify-content: space-between;
+  padding: 15px 40px;
+  background: #000;
+}
+
+body.light nav {
+  background: #fff;
+  /* color: #000; */
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.nav-item{
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+/* SEARCH */
+.search {
+  text-align: center;
+  margin: 20px;
+}
+
+.search input {
+  padding: 10px;
+  width: 250px;
+  font-weight: bolder;
+
+}
+
+.search button {
+  padding: 10px;
+  background: gold;
+  border: none;
+}
+
+
+/* SEARCH */
+.search {
+  text-align: center;
+  margin: 20px;
+}
+
+.search input {
+  padding: 10px;
+  width: 250px;
+}
+
+.search button {
+  padding: 10px;
+  background: gold;
+  border: none;
+}
+
+/* FILTER NAV */
+.filter-nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter-nav button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background: #1b263b;
+  color: white;
+  border-radius: 5px;
+}
+
+.filter-nav .active {
+  background: gold;
+  color: black;
+}
+
+/* MOVIES */
+/* .movies {
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* CARD *
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT (Netflix style) 
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* INFO OVERLAY *
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(transparent, black);
+  padding: 10px;
+}
+
+.info h4 {
+  margin: 0;
+}
+
+.info p {
+  margin: 5px 0 0;
+  font-size: 14px;
+} */
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: black;
+  margin-top: 30px;
+}
+.btndetials{
+  background-color: rgb(3, 111, 243);
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+
+}
+.btndetials a{
+  background-color: rgb(3, 111, 243);
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+body.light footer{
+  background-color: white;
+  color: black;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Card */
+.card {
+  /* background-color: #0a4b8f; */
+  background: #04376b;
+  padding: 5px;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-body {
+  padding: 10px;
+  font-size: 20px;
+  background: #0a4b8f;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+  background: #0a4b8f;
+}
+.card-text{
+  color: white;
+}
+
+/* .show-details{
+  display: 
+  border: 2px solid white;
+} */
+ .details-bottom{
+  margin: 50xp;
+ }
+
+
+ /* login page stylling */
+ .auth-container {
+  width: min(90%, 400px);
+  margin: 60px auto;
+  padding: 28px;
+  background: #0c0c0c;
+  color: white;
+  border: #fff 2px 2px 2px 2px;
+  border-radius: 12px;
+}
+
+.auth-container h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-container label {
+  display: block;
+  margin: 14px 0 6px;
+}
+
+.auth-container input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #252525;
+  color: white;
+}
+
+.auth-container button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #e50914;
+  color: white;
+  cursor: pointer;
+}
+
+.auth-container a {
+  color: #ff5252;
+}
+
+// favioirte page card styling
+
+
+
+/* Favorite movies container */
+#favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  align-items: stretch;
+}
+
+/* Individual favorite card */
+.favorite-movie-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #1c1c1c;
+  color: #ffffff;
+  border: 1px solid #383838;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+/* Movie poster */
+.favorite-movie-poster {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Movie details */
+.favorite-movie-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.favorite-movie-title {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.favorite-movie-rating {
+  color: #f5c518;
+  margin: 0;
+}
+
+/* Remove favorite button */
+.favorite-remove-btn {
+  background: #e53935;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.favorite-remove-btn:hover {
+  background: #c62828;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  #favoritesContainer {
+    grid-template-columns: 1fr;
+    padding: 12px;
+  }
+
+  .favorite-movie-poster {
+    max-width: 200px;
+    height: 280px;
+  }
+}
+
+
+.favorite-remove-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.favorite-remove-btn:hover {
+  background-color: #b02a37;
+}
+
+.favorite-remove-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Favorites cards: same width as Popular Movies */
+#favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+#favoritesContainer .card {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+#favoritesContainer .card-img-top {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  #favoritesContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  #favoritesContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}

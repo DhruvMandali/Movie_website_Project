@@ -1,0 +1,454 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111318;
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 235px;
+    padding: 28px 18px;
+    background: #191c23;
+    border-right: 1px solid #30333b;
+}
+
+.sidebar h2 {
+    font-size: 21px;
+    margin-bottom: 35px;
+}
+
+.sidebar-label {
+    color: #9298a5;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+.sidebar a,
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 8px;
+    border: 0;
+    border-radius: 7px;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+    color: #e5e7eb;
+    background: transparent;
+    cursor: pointer;
+}
+
+.sidebar a:hover,
+.logout-button:hover {
+    background: #292e39;
+}
+
+.logout-button {
+    margin-top: 25px;
+    color: #fca5a5;
+}
+
+.main-content {
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 28px 32px;
+}
+
+.page-header,
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.page-header p,
+.panel-header p {
+    color: #a4aab6;
+    font-size: 14px;
+}
+
+.admin-badge {
+    background: #164e3b;
+    color: #a7f3d0;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#statusMessage {
+    color: #a4aab6;
+    margin-bottom: 18px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.stat-card,
+.panel {
+    background: #191c23;
+    border: 1px solid #30333b;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.stat-card p {
+    color: #a4aab6;
+    margin-bottom: 14px;
+}
+
+.stat-card h2 {
+    font-size: 30px;
+}
+
+.panel-header {
+    margin-bottom: 22px;
+}
+
+.panel-header h2 {
+    margin-bottom: 8px;
+}
+
+#userSearch {
+    width: min(100%, 300px);
+    padding: 11px 13px;
+    border: 1px solid #414653;
+    border-radius: 7px;
+    outline: none;
+    background: #111318;
+    color: #fff;
+}
+
+#userSearch:focus {
+    border-color: #93c5fd;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #30333b;
+    font-size: 13px;
+}
+
+th {
+    color: #a4aab6;
+    background: #20232b;
+}
+
+td {
+    color: #e5e7eb;
+}
+
+.password-protected {
+    color: #86efac;
+}
+
+.role-badge {
+    padding: 5px 9px;
+    border-radius: 15px;
+    background: #292e39;
+    font-size: 12px;
+}
+
+#usersCount {
+    color: #a4aab6;
+    margin-top: 16px;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        padding: 18px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 16px;
+    }
+
+    .sidebar a,
+    .logout-button {
+        display: inline-block;
+        width: auto;
+        margin: 3px;
+    }
+
+    .logout-button {
+        margin-top: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Activity Logs table layout fix */
+
+/* ===== Main layout and sidebar alignment ===== */
+
+/* .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 268px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1000;
+} */
+
+/* Main page content must start after sidebar */
+/* .main-content {
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 28px 32px;
+} */
+
+/* ===== Activity logs section ===== */
+
+.activity-section {
+
+  display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 30px 0;
+    padding: 26px;
+    box-sizing: border-box;
+    background: #191c23;
+    border: 1px solid #30343d;
+    border-radius: 15px;
+    color: #f5f6fa;}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.activity-header h2 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    line-height: 1.3;
+}
+
+.activity-header p {
+    margin: 10px;
+    /* color: #aebbd0;
+     */
+    /* color: #a4aab6;  */
+color: rebeccapurple;
+    line-height: 1.5;
+}
+
+/* Table scrolls inside its own container */
+.activity-table-container {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+    border: 1px solid #30343d;
+    border-radius: 8px;
+}
+
+.activity-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;
+    background: #191c23;
+}
+
+.activity-table thead {
+    background: #22252d;
+}
+
+.activity-table th,
+.activity-table td {
+    padding: 15px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #30343d;
+}
+
+.activity-table th {
+    color: #b8c6da;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.activity-table td {
+    color: #f5f6fa;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.activity-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.activity-table tbody tr:hover {
+    background: #22252d;
+}
+
+.activity-footer {
+    margin: 18px 0 0;
+    color: #aebbd0;
+    font-size: 13px;
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 268px;
+        width: calc(100% - 268px);
+        padding: 16px;
+    }
+
+    .activity-section {
+        padding: 16px;
+    }
+
+    .activity-header h2 {
+        font-size: 22px;
+    }
+}
+
+/* ===== Review Moderation ===== */
+
+.reviews-section {
+    margin-top: 28px;
+    min-width: 0;
+}
+
+.reviews-table-wrapper,
+.reviews-section .table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.reviews-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    white-space: normal;
+}
+
+.reviews-table th,
+.reviews-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #30333b;
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+.reviews-table th {
+    background: #20232b;
+    color: #a4aab6;
+    white-space: nowrap;
+}
+
+.reviews-table td {
+    overflow-wrap: anywhere;
+}
+
+.review-delete-button {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 12px;
+    background: #7f1d1d;
+    color: #fee2e2;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.review-delete-button:hover {
+    background: #991b1b;
+}
+
+.review-delete-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#reviewsStatus {
+    margin-top: 14px;
+    font-size: 13px;
+    color: #a4aab6;
+}
+
+
+/* Dashboard refresh buttons */
+.refresh-button {
+    padding: 10px 14px;
+    border: 1px solid #414653;
+    border-radius: 7px;
+    background: #292e39;
+    color: #f5f5f5;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.refresh-button:hover {
+    background: #374151;
+}
+
+.refresh-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
