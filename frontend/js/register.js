@@ -12,7 +12,7 @@ registerForm.addEventListener("submit", async (event) => {
   message.textContent = "Registering...";
 
   try {
-    const response = await fetch("/api/auth/register", {
+    const response = await fetch("https://moviewebsiteproject-backend.vercel.app/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
