@@ -19,6 +19,7 @@ app.use(express.json());
 // app.use(express.static(path.join(__dirname, "../frontend")));
 
 // API routes
+
 app.use("/api/auth", authRoutes);
 app.use("/api/favorites", favoriteRoutes);
 app.use("/api/reviews", reviewRoutes);
@@ -29,6 +30,14 @@ app.use("/api/admin", adminRoutes);
 //     res.sendFile(path.join(__dirname, "../frontend/index.html"));
 // });
 
+
+// Health check route
+app.get("/", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "Movie Website Backend is running successfully!"
+    });
+});
 // Error handling
 const {
     notFound,
