@@ -409,7 +409,7 @@ body.light footer{
     gap: 12px;
   }
 }
-.edit-user-button,
+/* .edit-user-button,
 .delete-user-button {
     padding: 7px 13px;
     border: none;
@@ -440,7 +440,7 @@ body.light footer{
 .delete-user-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-}
+} */
 /* User Action Buttons */
 .edit-user-button,
 .delete-user-button {
