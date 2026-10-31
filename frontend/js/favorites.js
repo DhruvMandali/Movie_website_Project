@@ -1,4 +1,4 @@
-
+const API_BASE_URL = "https://moviewebsiteproject-backend.vercel.app";
 document.addEventListener("DOMContentLoaded", () => {
     const favoriteButton = document.getElementById("favoriteButton");
     const favoriteMessage = document.getElementById("favoriteMessage");
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             const response = await fetch(
-                "https://moviewebsiteproject-backend.vercel.app/api/favorites",
+                "${API_BASE_URL}/api/favorites",
                 {
                     method: "POST",
                     headers: {

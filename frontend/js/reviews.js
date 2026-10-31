@@ -1,4 +1,4 @@
-
+const API_BASE_URL = "https://moviewebsiteproject-backend.vercel.app";
 function setupReviews(movieId) {
   const reviewForm = document.getElementById("reviewForm");
   const reviewText = document.getElementById("reviewText");
@@ -34,7 +34,7 @@ function setupReviews(movieId) {
     reviewMessage.textContent = "Loading reviews...";
 
     try {
-      const response = await fetch(`/api/reviews/${movieId}`);
+      const response = await fetch(`${API_BASE_URL}/api/reviews/${movieId}`);
       const data = await response.json();
 
       if (!response.ok) {
@@ -111,7 +111,7 @@ function setupReviews(movieId) {
 
             try {
               const response = await fetch(
-                `/api/reviews/${review.id}`,
+                `${API_BASE_URL}/api/reviews/${review.id}`,
                 {
                   method: "PUT",
                   headers: {
@@ -164,7 +164,7 @@ function setupReviews(movieId) {
 
             try {
               const response = await fetch(
-                `/api/reviews/${review.id}`,
+                `${API_BASE_URL}/api/reviews/${review.id}`,
                 {
                   method: "DELETE",
                   headers: {
@@ -227,7 +227,7 @@ function setupReviews(movieId) {
     reviewMessage.textContent = "Submitting review...";
 
     try {
-      const response = await fetch("/api/reviews", {
+      const response = await fetch("${API_BASE_URL}/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
