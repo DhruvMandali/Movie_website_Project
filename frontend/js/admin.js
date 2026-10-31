@@ -1,4 +1,4 @@
-
+const API_BASE_URL = "https://moviewebsiteproject-backend.vercel.app";
 const statusMessage = document.getElementById("statusMessage");
 const usersTableBody = document.getElementById("usersTableBody");
 const userSearch = document.getElementById("userSearch");
@@ -55,7 +55,7 @@ async function apiRequest(url) {
 
 async function loadDashboard() {
     try {
-        const data = await apiRequest("/api/admin/dashboard");
+        const data = await apiRequest(`${API_BASE_URL}/api/admin/dashboard`);
 
         document.getElementById("totalUsers").textContent =
             data.stats.totalUsers ?? 0;
@@ -74,7 +74,7 @@ async function loadDashboard() {
 
 async function loadUsers() {
     try {
-        const data = await apiRequest("/api/admin/users");
+        const data = await apiRequest(`${API_BASE_URL}/api/admin/users`);
 
         allUsers = Array.isArray(data.users) ? data.users : [];
         renderUsers(allUsers);
@@ -155,7 +155,7 @@ async function loadUserActivities() {
     try {
         const response = await fetch(
             // "http://localhost:7750/api/admin/activities"
-            "http://127.0.0.1:7750/api/admin/activities",
+            `${API_BASE_URL}/api/admin/activities`,
             {
                 method: "GET",
                 headers: {
@@ -226,7 +226,7 @@ async function loadAdminReviews() {
 
     try {
         const response = await fetch(
-            "http://127.0.0.1:7750/api/admin/reviews",
+            `${API_BASE_URL}/api/admin/reviews`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -286,7 +286,7 @@ async function loadAdminReviews() {
 
                 try {
                     const deleteResponse = await fetch(
-                        `http://127.0.0.1:7750/api/admin/reviews/${review.id}`,
+                        `${API_BASE_URL}/api/admin/reviews/${review.id}`,
                         {
                             method: "DELETE",
                             headers: {
