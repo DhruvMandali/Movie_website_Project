@@ -10,7 +10,7 @@ const global = {
     totalPages: 1,
   },
   api: {
-    apiKey: "Your_TMDB_API_KEY",
+    apiKey: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGZjZmFmYWExMjU0OTM4OTU1YjIxNzI1MjIxNGQ2MCIsIm5iZiI6MTc3NDAyODI2Mi4yODcwMDAyLCJzdWIiOiI2OWJkODVlNjY4Zjg5Nzc4MzZlZTM0M2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.uKKFMxBQ9OvGDttD3yumFwF06pvRdJ81ZLnn6KZMPfQ",
     apiUrl: "https://api.themoviedb.org/3/",
   },
 };
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 // api
 async function fetchAPIData(endpoint) {
-  const api_key = "Your_TMDB_API_KEY";
+  const api_key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGZjZmFmYWExMjU0OTM4OTU1YjIxNzI1MjIxNGQ2MCIsIm5iZiI6MTc3NDAyODI2Mi4yODcwMDAyLCJzdWIiOiI2OWJkODVlNjY4Zjg5Nzc4MzZlZTM0M2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.uKKFMxBQ9OvGDttD3yumFwF06pvRdJ81ZLnn6KZMPfQ";
   const api = "https://api.themoviedb.org/3/";
 
   const response = await fetch(
@@ -65,7 +65,7 @@ async function fetchAPIData(endpoint) {
 }
 
 async function serchfetchAPIData(endpoint) {
-  const api_key = "Your_TMDB_API_KEY";
+  const api_key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGZjZmFmYWExMjU0OTM4OTU1YjIxNzI1MjIxNGQ2MCIsIm5iZiI6MTc3NDAyODI2Mi4yODcwMDAyLCJzdWIiOiI2OWJkODVlNjY4Zjg5Nzc4MzZlZTM0M2QiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.uKKFMxBQ9OvGDttD3yumFwF06pvRdJ81ZLnn6KZMPfQ";
   const api = "https://api.themoviedb.org/3/";
 
   const separator = endpoint.includes("?") ? "&" : "?";
