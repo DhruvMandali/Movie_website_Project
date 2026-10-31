@@ -241,7 +241,7 @@ setupReviews(showId);
     favoriteMessage.textContent = "Adding to favorites...";
 
     try {
-      const response = await fetch("/api/favorites", {
+      const response = await fetch("https://moviewebsiteproject-backend.vercel.app/api/favorites", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

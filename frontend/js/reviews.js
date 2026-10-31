@@ -227,7 +227,7 @@ function setupReviews(movieId) {
     reviewMessage.textContent = "Submitting review...";
 
     try {
-      const response = await fetch("${API_BASE_URL}/api/reviews", {
+      const response = await fetch(`${API_BASE_URL}/api/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
