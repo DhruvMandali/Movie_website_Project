@@ -473,39 +473,53 @@ color: rebeccapurple;
     transition: all 0.25s ease;
 }
 
-/* Edit Button */
-.edit-user-button {
-    background: #2563eb;
-    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
+/* ===== Admin User Action Buttons ===== */
+
+#usersTableBody .edit-user-button,
+#usersTableBody .delete-user-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 75px;
+    padding: 9px 14px !important;
+    margin: 4px !important;
+
+    border: none !important;
+    border-radius: 7px !important;
+
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
 }
 
-.edit-user-button:hover {
-    background: #1d4ed8;
+/* Edit */
+#usersTableBody .edit-user-button {
+    background-color: #2563eb !important;
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+}
+
+#usersTableBody .edit-user-button:hover {
+    background-color: #1d4ed8 !important;
     transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.3);
 }
 
-/* Delete Button */
-.delete-user-button {
-    background: #dc2626;
-    box-shadow: 0 3px 8px rgba(220, 38, 38, 0.2);
+/* Delete */
+#usersTableBody .delete-user-button {
+    background-color: #dc2626 !important;
+    box-shadow: 0 3px 8px rgba(220, 38, 38, 0.25);
 }
 
-.delete-user-button:hover {
-    background: #b91c1c;
+#usersTableBody .delete-user-button:hover {
+    background-color: #b91c1c !important;
     transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(220, 38, 38, 0.3);
-}
-
-/* Button Click */
-.edit-user-button:active,
-.delete-user-button:active {
-    transform: scale(0.96);
 }
 
 /* Disabled */
-.edit-user-button:disabled,
-.delete-user-button:disabled {
+#usersTableBody button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
