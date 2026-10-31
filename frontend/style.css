@@ -409,3 +409,35 @@ body.light footer{
     gap: 12px;
   }
 }
+.edit-user-button,
+.delete-user-button {
+    padding: 7px 13px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+    color: white;
+    font-weight: 600;
+}
+
+.edit-user-button {
+    background: #2563eb;
+}
+
+.delete-user-button {
+    background: #dc2626;
+}
+
+.edit-user-button:hover {
+    background: #1d4ed8;
+}
+
+.delete-user-button:hover {
+    background: #b91c1c;
+}
+
+.edit-user-button:disabled,
+.delete-user-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

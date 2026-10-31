@@ -91,8 +91,11 @@ async function loadUsers() {
 function renderUsers(users) {
     if (users.length === 0) {
         usersTableBody.innerHTML = `
-            <tr><td colspan="6">No users found.</td></tr>
+            <tr>
+                <td colspan="7">No users found.</td>
+            </tr>
         `;
+
         document.getElementById("usersCount").textContent = "0 users";
         return;
     }
@@ -108,8 +111,33 @@ function renderUsers(users) {
                 <td>${escapeHTML(user.name)}</td>
                 <td>${escapeHTML(user.email)}</td>
                 <td class="password-protected">Protected</td>
-                <td><span class="role-badge">${escapeHTML(user.role)}</span></td>
+                <td>
+                    <span class="role-badge">
+                        ${escapeHTML(user.role)}
+                    </span>
+                </td>
                 <td>${escapeHTML(registeredDate)}</td>
+                <td>
+                    ${
+                        user.role === "user"
+                        ? `
+                            <button
+                                type="button"
+                                class="edit-user-button"
+                                data-action="edit"
+                                data-user-id="${escapeHTML(user.id)}"
+                            >Edit</button>
+
+                            <button
+                                type="button"
+                                class="delete-user-button"
+                                data-action="delete"
+                                data-user-id="${escapeHTML(user.id)}"
+                            >Delete</button>
+                        `
+                        : "Admin account"
+                    }
+                </td>
             </tr>
         `;
     }).join("");
@@ -117,6 +145,125 @@ function renderUsers(users) {
     document.getElementById("usersCount").textContent =
         `Showing ${users.length} user(s)`;
 }
+
+// user update and delete
+
+usersTableBody.addEventListener("click", async (event) => {
+    const button = event.target.closest("button[data-action]");
+
+    if (!button) return;
+
+    const userId = button.dataset.userId;
+    const action = button.dataset.action;
+
+    const selectedUser = allUsers.find(
+        user => String(user.id) === String(userId)
+    );
+
+    if (!selectedUser) {
+        alert("User not found.");
+        return;
+    }
+
+    // EDIT USER
+    if (action === "edit") {
+        const newName = prompt(
+            "Enter new name:",
+            selectedUser.name
+        );
+
+        if (newName === null) return;
+
+        const newEmail = prompt(
+            "Enter new email:",
+            selectedUser.email
+        );
+
+        if (newEmail === null) return;
+
+        if (!newName.trim() || !newEmail.trim()) {
+            alert("Name and email cannot be empty.");
+            return;
+        }
+
+        button.disabled = true;
+
+        try {
+            const response = await fetch(
+                `${API_BASE_URL}/api/admin/users/${userId}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        name: newName.trim(),
+                        email: newEmail.trim()
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Unable to update user.");
+            }
+
+            alert("User updated successfully!");
+
+            await loadUsers();
+            await loadDashboard();
+
+        } catch (error) {
+            console.error("Update user error:", error);
+            alert(error.message);
+        } finally {
+            button.disabled = false;
+        }
+    }
+
+    // DELETE USER
+    if (action === "delete") {
+        const confirmed = confirm(
+            `Are you sure you want to delete ${selectedUser.name}?`
+        );
+
+        if (!confirmed) return;
+
+        button.disabled = true;
+
+        try {
+            const response = await fetch(
+                `${API_BASE_URL}/api/admin/users/${userId}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || "Unable to delete user.");
+            }
+
+            alert("User deleted successfully!");
+
+            await loadUsers();
+            await loadDashboard();
+            await loadUserActivities();
+
+        } catch (error) {
+            console.error("Delete user error:", error);
+            alert(error.message);
+        } finally {
+            button.disabled = false;
+        }
+    }
+});
 
 userSearch.addEventListener("input", () => {
     const searchTerm = userSearch.value.trim().toLowerCase();
